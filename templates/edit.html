@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Post</title>
+</head>
+<body>
+    {% if error %}
+<p class=error><strong>Error:</strong> {{ error }}
+    {% endif %}</p>
+<form action="../edit/{{blogpost['id']}}" method="post">
+    <p style="color:red;">Edit Post:<br>
+        <textarea style:"white-space:pre-wrap" name="entry" rows="20" cols="60" required>{{ blogpost['entry'] }}
+    </textarea></p>
+    <input type="hidden" name="blogid" value="{{blogpost['id']}}" >
+    <p><input type="submit" value="Update"></p>or
+    <br><br><a href="../">Cancel and return to homepage</a>
+</form>
+</body>
+</html>

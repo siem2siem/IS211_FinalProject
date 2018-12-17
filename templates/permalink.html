@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Add Post</title>
+</head>
+<body>
+{% if blogpost %}
+<h3>{{ blogpost['title'] }}</h3>
+<p>Posted by: {{ blogpost['author'] }} on {{ blogpost['postdate'] }}
+<p style="white-space:pre-wrap">{{ blogpost['entry'] }}</p>
+{% else %}
+<p>Permalink not found</p>
+{% endif %}
+<a href="../">Return to homepage</a>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IS 211 - Final Project - Blog Application</title>
+</head>
+<body>
+<h1 style="color:blue;">IS 211 Final Project - Blog Application</h1>
+    {% if not blogposts %}
+<h2>There are currently no post in the blog.  Please login to post.</h2>
+    {% else %}
+    {% for row in blogposts %}
+<h3>{{ row['title'] }}</h3>
+<p>Posted by: {{ row['author'] }} on {{ row['postdate'] }}
+    <a href="/permalink/{{row['id']}}">Permalink to Blog Post</a></p>
+<p style="white-space:pre-wrap">{{ row['entry'] }}</p>
+<br>
+    {% endfor %}
+    {% endif %}
+<p>Logged in as: {{ user }}</p>
+    {% if user == 'Guest' %}
+    <p> <a href="/login">Login</a></p>
+    {% else %}
+    <p><a href="/dashboard">Dashboard</a> or <a href="/logout">Log out</a></p>
+    {% endif %}
+</body>
+</html>
